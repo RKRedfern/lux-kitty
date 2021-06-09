@@ -1,10 +1,27 @@
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Navbar, Sidebar, Footer } from './Components';
+import { HomePage, AboutPage, ErrorPage } from './Pages';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <h1> KELLY ANNE'S WEBSITE </h1>
+      <Navbar />
+      <Sidebar />
+      <Switch>
+        <Route exact path='/'>
+          <HomePage/>
+        </Route>
+        <Route exact path="/about">
+          <AboutPage/>
+        </Route>
+        <Route exact path="*">
+          <ErrorPage />
+        </Route>
+      </Switch>
+      <Footer />
     </div>
-  );
+  )
 }
 
 export default App;
